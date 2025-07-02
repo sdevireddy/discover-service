@@ -1,15 +1,16 @@
-package com.saviynt.discovery;
+package com.zen.config;
 
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.config.server.EnableConfigServer;
 import org.springframework.cloud.netflix.eureka.server.EnableEurekaServer;
 
 @SpringBootApplication
-@EnableEurekaServer
-public class DiscoveryServiceApplication {
-    public static void main(String[] args) {
-        SpringApplication.run(DiscoveryServiceApplication.class,args);
-    }
+@EnableConfigServer
+public class ConfigServerApplication {
 
+    public static void main(String[] args) {
+        SpringApplication.run(ConfigServerApplication.class, args);
+    }
 }
