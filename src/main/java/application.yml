@@ -1,0 +1,47 @@
+server:
+  port: 8091
+  
+spring:
+  application:
+    name: config-defaults
+  profiles:
+    active: ${SPRING_PROFILES_ACTIVE:dev}
+
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    hikari:
+      maximum-pool-size: 10
+      minimum-idle: 2
+      idle-timeout: 300000
+      max-lifetime: 1800000
+      connection-timeout: 30000
+
+  jpa:
+    hibernate:
+      ddl-auto: none
+      dialect: org.hibernate.dialect.MySQLDialect
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    show-sql: true
+
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/sdevireddy/discover-service.git  # 👈 REQUIRED
+          clone-on-start: true
+          default-label: main  # adjust if your repo uses 'master' or something else
+      
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8767/eureka
+  
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"

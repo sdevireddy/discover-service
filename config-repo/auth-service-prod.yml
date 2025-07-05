@@ -1,0 +1,28 @@
+spring:
+  application:
+    name: auth-service
+
+  datasource:
+    url: jdbc:mysql://shortline.proxy.rlwy.net:25041/railway
+    username: root
+    password: JRPJQFaNphMviBYbeJXBfcXgDUQYBYPp
+
+  tenant:
+    datasource:
+      url-prefix: jdbc:mysql://shortline.proxy.rlwy.net:25041/
+      username: root
+      password: JRPJQFaNphMviBYbeJXBfcXgDUQYBYPp
+      pool:
+        maximum-pool-size: 2
+        minimum-idle: 1
+        driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jwt:
+    secret: G9MzZjTz2Mm89rL1RL9Jb9vP0rf4pKukwH3XzOvQduE=
+
+server:
+  port: 8082
+
+logging:
+  level:
+    com.zen.auth: DEBUG
