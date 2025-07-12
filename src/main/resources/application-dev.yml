@@ -1,13 +1,14 @@
 server:
   port: 8767
 
+
 spring:
   application:
     name: discovery-service
 
 eureka:
   instance:
-    hostname: ec2-16-171-41-109.eu-north-1.compute.amazonaws.com
+    hostname: localhost
     prefer-ip-address: false
   client:
     register-with-eureka: false
@@ -21,8 +22,6 @@ management:
   endpoint:
     health:
       show-details: always
-  server:
-    port: 8767  # Optional: if you want actuator on same port (default)
 
 logging:
   level:
