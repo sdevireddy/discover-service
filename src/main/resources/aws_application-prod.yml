@@ -1,0 +1,30 @@
+server:
+  port: 8767
+
+
+spring:
+  application:
+    name: discovery-service
+
+eureka:
+  instance:
+    hostname: ec2-16-171-41-109.eu-north-1.compute.amazonaws.com
+    prefer-ip-address: false
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always
+
+logging:
+  level:
+    com.netflix.discovery: DEBUG
+    com.netflix.eureka: DEBUG
+    org.springframework.cloud.netflix.eureka: DEBUG
