@@ -1,5 +1,5 @@
 server:
-  port: 8767
+  port: ${PORT:8767}  # ✅ dynamic port for Railway; fallback to 8767 locally
 
 spring:
   application:
@@ -7,11 +7,17 @@ spring:
 
 eureka:
   instance:
-    hostname: localhost
+    hostname: ${RAILWAY_PUBLIC_DOMAIN:localhost}  # Railway public domain
     prefer-ip-address: false
   client:
     register-with-eureka: false
     fetch-registry: false
+  server:
+    eviction-interval-timer-in-ms: 5000
+    enable-self-preservation: false
+    renewal-percent-threshold: 0.85
+    response-cache-update-interval-ms: 5000
+    response-cache-auto-expiration-in-seconds: 10
 
 management:
   endpoints:
@@ -21,11 +27,9 @@ management:
   endpoint:
     health:
       show-details: always
-  server:
-    port: 8767  # Optional: if you want actuator on same port (default)
 
 logging:
   level:
-    com.netflix.discovery: DEBUG
-    com.netflix.eureka: DEBUG
-    org.springframework.cloud.netflix.eureka: DEBUG
+    com.netflix.discovery: INFO  # ✅ DEBUG is very verbose for prod
+    com.netflix.eureka: INFO
+    org.springframework.cloud.netflix.eureka: INFO
