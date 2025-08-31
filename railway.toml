@@ -2,7 +2,5 @@
 builder = "DOCKERFILE"
 
 [deploy]
-startCommand = "java -jar -Dspring.profiles.active=prod app.jar"
-healthcheckPath = "/actuator/health"
-healthcheckTimeout = 300
+startCommand = "java -jar -Dspring.profiles.active=prod -Dlogging.level.root=DEBUG app.jar"
 restartPolicyType = "ON_FAILURE"
