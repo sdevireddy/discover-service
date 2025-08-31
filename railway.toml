@@ -2,5 +2,5 @@
 builder = "DOCKERFILE"
 
 [deploy]
-startCommand = "java -jar -Dspring.profiles.active=prod -Dlogging.level.root=DEBUG app.jar"
+startCommand = "java -jar app.jar"
 restartPolicyType = "ON_FAILURE"
