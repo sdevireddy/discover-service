@@ -3,16 +3,17 @@
     <!-- Console Appender for Railway logs -->
     <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
-            <pattern>%msg%n</pattern>
+            <pattern>%d{HH:mm:ss} %-5level %logger{50} - %msg%n</pattern>
         </encoder>
     </appender>
 
-    <!-- Minimal logging -->
-    <logger name="com.netflix.discovery" level="ERROR" />
-    <logger name="com.netflix.eureka" level="ERROR" />
-    <logger name="org.springframework" level="ERROR" />
+    <!-- Logger configurations -->
+    <logger name="com.netflix.discovery" level="INFO" />
+    <logger name="com.netflix.eureka" level="INFO" />
+    <logger name="org.springframework.boot" level="INFO" />
+    <logger name="com.saviynt.discovery" level="INFO" />
 
-    <root level="ERROR">
+    <root level="INFO">
         <appender-ref ref="CONSOLE" />
     </root>
 
