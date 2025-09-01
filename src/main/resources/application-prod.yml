@@ -27,13 +27,22 @@ management:
   endpoints:
     web:
       exposure:
-        include: "*"
+        include: "health"
   endpoint:
     health:
       show-details: always
+    metrics:
+      enabled: false
+  metrics:
+    export:
+      simple:
+        enabled: false
 
 logging:
   level:
-    com.netflix.discovery: INFO
-    com.netflix.eureka: INFO
-    org.springframework.cloud.netflix.eureka: INFO
+    root: ERROR
+    com.netflix.discovery: ERROR
+    com.netflix.eureka: ERROR
+    org.springframework.cloud.netflix.eureka: ERROR
+  pattern:
+    console: "%msg%n"
