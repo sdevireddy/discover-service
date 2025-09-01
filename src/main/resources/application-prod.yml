@@ -11,7 +11,7 @@ spring:
 
 eureka:
   instance:
-    hostname: discovery-server-production.up.railway.app  # Railway public domain
+    hostname: ${RAILWAY_PUBLIC_DOMAIN:localhost}  # Railway public domain
     prefer-ip-address: false
   client:
     register-with-eureka: false
@@ -43,6 +43,6 @@ logging:
     root: ERROR
     com.netflix.discovery: ERROR
     com.netflix.eureka: ERROR
-    org.springframework.cloud.netflix.eureka: ERROR
+    org.springframework: ERROR
   pattern:
     console: "%msg%n"

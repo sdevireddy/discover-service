@@ -7,6 +7,11 @@
         </encoder>
     </appender>
 
+    <!-- Minimal logging -->
+    <logger name="com.netflix.discovery" level="ERROR" />
+    <logger name="com.netflix.eureka" level="ERROR" />
+    <logger name="org.springframework" level="ERROR" />
+
     <root level="ERROR">
         <appender-ref ref="CONSOLE" />
     </root>
