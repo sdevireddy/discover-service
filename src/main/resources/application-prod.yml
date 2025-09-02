@@ -7,11 +7,11 @@ spring:
 
 eureka:
   instance:
-    hostname: ${RAILWAY_PUBLIC_DOMAIN:discover-service-production.up.railway.app}
-    prefer-ip-address: false
+    preferIpAddress: true
+    hostname: ${HOSTNAME:discover-service-production.up.railway.app}
   client:
-    register-with-eureka: false
-    fetch-registry: false
+    registerWithEureka: false
+    fetchRegistry: false
 
 management:
   endpoints:
